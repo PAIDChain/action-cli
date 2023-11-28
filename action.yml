@@ -5,6 +5,9 @@ branding:
   icon: anchor
   color: orange
 inputs:
+  path:
+    description: "Working directory"
+    required: true
   run:
     description: "Command to execute"
     required: true

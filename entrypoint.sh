@@ -5,6 +5,7 @@ if [[ "$INPUT_DEBUG" == "true" ]]; then
     set -o xtrace
 fi
 
+export WORKING_PATH=${INPUT_PATH}
 export RUN=${INPUT_RUN}
 
 function ensure() {
@@ -14,8 +15,9 @@ function ensure() {
     fi
 }
 
+ensure "${WORKING_PATH}" "path"
 ensure "${RUN}" "run"
 
-export ARGS="$RUN"
+export ARGS="cd $WORKING_PATH; $RUN"
 
 /bin/sh -c "$ARGS"
