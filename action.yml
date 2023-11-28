@@ -1,0 +1,17 @@
+# cli.yml
+name: "Cli"
+description: "CLI custom container"
+branding:
+  icon: anchor
+  color: orange
+inputs:
+  run:
+    description: "Command to execute"
+    required: true
+  debug:
+    description: Enables trace for entrypoint.sh
+    required: false
+runs:
+  using: "docker"
+  image: "docker://public.ecr.aws/paidchain/action-cli:1.0.0"
+  entrypoint: "/entrypoint.sh"
